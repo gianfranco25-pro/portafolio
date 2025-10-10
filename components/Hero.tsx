@@ -1,6 +1,7 @@
 import { FaLocationArrow } from "react-icons/fa6";
 
-import MagicButton from "./MagicButton";
+import dynamic from "next/dynamic";
+const MagicButton = dynamic(() => import("./MagicButton"), { ssr: false });
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
