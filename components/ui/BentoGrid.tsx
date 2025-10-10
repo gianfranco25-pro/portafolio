@@ -2,8 +2,7 @@ import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
 // Also install this npm i --save-dev @types/react-lottie
-import dynamic from "next/dynamic";
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+import Player from "lottie-react";
 
 import { cn } from "@/lib/utils";
 
@@ -58,14 +57,7 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // lottie-react no requiere opciones complejas
 
   const handleCopy = () => {
     const text = "gianfranconunezdelzo2507@gmail.com";
@@ -98,11 +90,6 @@ export const BentoGridItem = ({
               className={cn(imgClassName, "object-cover object-center ")}
             />
           )}
-        </div>
-        <div
-          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
-            } `}
-        >
           {spareImg && (
             <img
               src={spareImg}
@@ -182,11 +169,15 @@ export const BentoGridItem = ({
               {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
               {/* add handleCopy() for the copy the text */}
               <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
+                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"}`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <Player
+                  autoplay
+                  loop
+                  animationData={animationData}
+                  style={{ height: 200, width: 400 }}
+                />
               </div>
 
               <MagicButton
