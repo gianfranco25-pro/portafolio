@@ -2,12 +2,18 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, GitBranch, Github, Users, Layers } from 'lucide-react';
 
+const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
+  { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
+  { id: 'ejemplos', label: 'Prácticas', icon: <Code className="w-4 h-4" /> },
+  { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+];
+
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('ejemplos');
-  const [selectedExample, setSelectedExample] = useState(null);
-  const [expandedContent, setExpandedContent] = useState(null);
-  const [exampleTab, setExampleTab] = useState('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [activeTab, setActiveTab] = useState<'contenido' | 'ejemplos' | 'recursos'>('ejemplos');
+  const [selectedExample, setSelectedExample] = useState<any>(null);
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [exampleTab, setExampleTab] = useState<'reflexion' | 'codigo'>('reflexion');
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 3,
@@ -17,12 +23,6 @@ export default function Page() {
     subtitle: 'HTML/CSS Puro y Tailwind CSS',
     description: 'Desarrollo de prácticas calificadas en equipos de 3 personas utilizando Git/GitHub para control de versiones. Implementación de componentes web con HTML/CSS puro y Tailwind CSS.'
   };
-
-  const tabs = [
-    { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'ejemplos', label: 'Prácticas', icon: <Code className="w-4 h-4" /> },
-    { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
-  ];
 
   const contentItems = [
     { 

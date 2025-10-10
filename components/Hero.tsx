@@ -35,14 +35,22 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-row gap-4 justify-center items-center mt-4">
-            <a href="#about">
+            <button
+              onClick={() => {
+                const aboutSection = document.querySelector('#about');
+                if (aboutSection) {
+                  aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              style={{ background: 'none', border: 'none', padding: 0, margin: 0 }}
+            >
               <MagicButton
                 title="Ver mi trabajo"
                 icon={<FaLocationArrow />}
                 position="right"
               />
-            </a>
-            <a href="/CV Nuñez Delzo Gianfranco.pdf" download>
+            </button>
+            <a href="/CV Nuñez Delzo Gianfranco.pdf" download style={{ textDecoration: 'none' }}>
               <MagicButton
                 title="Descargar CV"
                 icon={<FaLocationArrow />}

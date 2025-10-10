@@ -1,13 +1,26 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Settings, PackageOpen, Blocks } from 'lucide-react';
 
+const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
+  { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
+  { id: 'ejemplos', label: 'Prácticas', icon: <Code className="w-4 h-4" /> },
+  { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+];
+
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('ejemplos');
-  const [selectedExample, setSelectedExample] = useState(null);
-  const [expandedContent, setExpandedContent] = useState(null);
-  const [exampleTab, setExampleTab] = useState('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [activeTab, setActiveTab] = useState<'contenido' | 'ejemplos' | 'recursos'>('ejemplos');
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.hash === '#contenido') {
+        setActiveTab('contenido');
+      }
+    }
+  }, []);
+  const [selectedExample, setSelectedExample] = useState<any>(null);
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [exampleTab, setExampleTab] = useState<'reflexion' | 'codigo'>('reflexion');
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 5,
@@ -17,12 +30,6 @@ export default function Page() {
     subtitle: 'JS Vanilla, LocalStorage y React.js',
     description: 'Desarrollo de aplicaciones interactivas con JavaScript puro: ruletas dinámicas, sorteo de equipos, LocalStorage. Introducción a React.js: herramientas de desarrollo, Vite, Create React App y Next.js.'
   };
-
-  const tabs = [
-    { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'ejemplos', label: 'Prácticas', icon: <Code className="w-4 h-4" /> },
-    { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
-  ];
 
   const contentItems = [
     { 
@@ -286,146 +293,260 @@ function copiarPortapapeles() {
     const texto = document.getElementById('resultado-equipos').innerText;
     navigator.clipboard.writeText(texto);
     alert('Copiado al portapapeles');
-}`
-    },
-    {
-      id: 2,
-      title: 'Introducción a React con Vite',
-      description: 'Configuración de entorno React con Vite, estructura de proyecto y componentes básicos',
-      icon: <Blocks className="w-5 h-5 text-cyan-600" />,
-      gradient: 'from-cyan-500 via-blue-500 to-indigo-500',
-      reflection: 'React revolucionó el desarrollo frontend con su enfoque basado en componentes. La introducción cubrió desde CDN hasta herramientas modernas como Vite, que supera a Create React App en velocidad de desarrollo. Vite usa ES modules nativos del navegador en desarrollo, evitando bundling innecesario. La arquitectura incluye main.jsx (punto de entrada), App.jsx (componente raíz), y el patrón de composición de componentes. El ecosistema moderno incluye Babel para JSX, Webpack para producción, y ESLint para calidad de código. Node.js y npm son fundamentales para gestionar dependencias en node_modules.',
-      code: `// ============================================
-// CREAR PROYECTO CON VITE
-// ============================================
+}
 
-// 1. Crear proyecto
-npm create vite@latest mi-app-react -- --template react
-
-// 2. Entrar al directorio
-cd mi-app-react
-
-// 3. Instalar dependencias
-npm install
-
-// 4. Ejecutar servidor de desarrollo
-npm run dev
 
 // ============================================
-// ESTRUCTURA DE ARCHIVOS
+// SEMANA 5 - REACT AVANZADO
 // ============================================
 
 /*
-mi-app-react/
-├── node_modules/        # Dependencias
-├── public/              # Archivos estáticos
-├── src/
-│   ├── assets/          # Imágenes, CSS
-│   ├── App.jsx          # Componente principal
-│   ├── App.css
-│   ├── main.jsx         # Punto de entrada
-│   └── index.css
-├── index.html           # HTML base
-├── package.json         # Configuración npm
-└── vite.config.js       # Configuración Vite
+NOVEDADES:
+- useEffect: Hook para efectos secundarios (data fetching, subscriptions)
+- useContext: Hook para consumir contextos
+- Custom Hooks: Hooks personalizados para lógica reutilizable
+- Render props y Higher Order Components (HOC) para compartir lógica
+- Suspense y React.lazy para carga diferida de componentes
+- Portales para renderizar fuera de la jerarquía del DOM
+- Fragments para agrupar elementos sin agregar nodos extra
+- Memoización con React.memo y useMemo para optimizar rendimiento
 */
 
 // ============================================
-// main.jsx - Punto de entrada
-// ============================================
-
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
-
-// ============================================
-// App.jsx - Componente principal
-// ============================================
-
-import { useState } from 'react'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <h1>Mi Primera App React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Contador: {count}
-        </button>
-      </div>
-    </div>
-  )
-}
-
-export default App
-
-// ============================================
-// REACT CON CDN (sin build tools)
-// ============================================
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>React CDN</title>
-    <!-- React 18 -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <!-- Babel para JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
-    <div id="root"></div>
-    
-    <script type="text/babel">
-        function MiComponente() {
-            const [nombre, setNombre] = React.useState('');
-            
-            return (
-                <div>
-                    <h1>Hola, {nombre || 'mundo'}</h1>
-                    <input 
-                        type="text" 
-                        value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
-                        placeholder="Tu nombre"
-                    />
-                </div>
-            );
-        }
-        
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<MiComponente />);
-    </script>
-</body>
-</html>
-
-// ============================================
-// DIFERENCIAS: Create React App vs Vite
+// useEffect - Ejemplo básico
 // ============================================
 
 /*
-CREATE REACT APP:
-- Más pesado y lento
-- Webpack como bundler
-- Hot Module Replacement más lento
-- Comando: npx create-react-app mi-app
+import React, { useState, useEffect } from 'react';
 
-VITE:
-- Ultrarrápido en desarrollo
-- ES modules nativos
-- HMR instantáneo
-- Menor tamaño de bundle
-- Comando: npm create vite@latest
+function Reloj() {
+  const [hora, setHora] = useState(new Date().toLocaleTimeString());
+  
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setHora(new Date().toLocaleTimeString());
+    }, 1000);
+    
+    // Cleanup: limpiar el intervalo al desmontar el componente
+    return () => clearInterval(intervalo);
+  }, []); // Dependencias vacías: solo al montar/desmontar
+
+  return <div>Hora actual: {hora}</div>;
+}
+
+export default Reloj;
+*/
+
+// ============================================
+// useContext - Ejemplo básico
+// ============================================
+
+/*
+import React, { createContext, useContext } from 'react';
+
+// Crear contexto
+const TemaContext = createContext('claro');
+
+function App() {
+  return (
+    <TemaContext.Provider value="oscuro">
+      <Toolbar />
+    </TemaContext.Provider>
+  );
+}
+
+function Toolbar() {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+// Consumir contexto
+function ThemedButton() {
+  const tema = useContext(TemaContext);
+  
+  return <button className={tema}>Botón con tema {tema}</button>;
+}
+
+export default App;
+*/
+
+// ============================================
+// Custom Hooks - Ejemplo básico
+// ============================================
+
+/*
+import React, { useState, useEffect } from 'react';
+
+// Custom Hook
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [cargando, setCargando] = useState(true);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(url);
+      const json = await response.json();
+      setData(json);
+      setCargando(false);
+    };
+    
+    fetchData();
+  }, [url]);
+  
+  return { data, cargando };
+}
+
+function App() {
+  const { data, cargando } = useFetch('https://api.example.com/datos');
+  
+  if (cargando) return <div>Cargando...</div>;
+  
+  return (
+    <div>
+      <h1>Datos:</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+// ============================================
+// Suspense y React.lazy - Ejemplo básico
+// ============================================
+
+/*
+import React, { Suspense, lazy } from 'react';
+
+// Carga diferida del componente
+const ComponentePesado = lazy(() => import('./ComponentePesado'));
+
+function App() {
+  return (
+    <div>
+      <h1>Mi App</h1>
+      
+      {/* Suspense: fallback mientras se carga el componente *}
+      <Suspense fallback={<div>Cargando componente pesado...</div>}>
+        <ComponentePesado />
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+// ============================================
+// Portales - Ejemplo básico
+// ============================================
+
+/*
+import React, { createPortal } from 'react';
+import ReactDOM from 'react-dom';
+
+function Modal({ children, isOpen, onClose }) {
+  if (!isOpen) return null;
+  
+  return createPortal(
+    <div className="modal">
+      <div className="modal-content">
+        <span className="close" onClick={onClose}>&times;</span>
+        {children}
+      </div>
+    </div>,
+    document.getElementById('portal') // Nodo fuera de la jerarquía del DOM
+  );
+}
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div>
+      <h1>Mi App</h1>
+      <button onClick={() => setIsOpen(true)}>Abrir modal</button>
+      
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <h2>Hola desde el modal!</h2>
+        <p>Este es un contenido dentro de un portal.</p>
+      </Modal>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+// ============================================
+// Fragments - Ejemplo básico
+// ============================================
+
+/*
+import React from 'react';
+
+function Lista({ items }) {
+  return (
+    <ul>
+      {items.map(item => (
+        // Fragment para agrupar sin nodo extra
+        <React.Fragment key={item.id}>
+          <li>{item.nombre}</li>
+          <li>{item.descripcion}</li>
+        </React.Fragment>
+      ))}
+    </ul>
+  );
+}
+
+export default Lista;
+*/
+
+// ============================================
+// Memoización - Ejemplo básico
+// ============================================
+
+/*
+import React, { useState, useMemo } from 'react';
+
+function App() {
+  const [contador, setContador] = useState(0);
+  const [texto, setTexto] = useState('');
+  
+  // useMemo para memorizar el resultado
+  const valorMemorizado = useMemo(() => {
+    return calcularValorComplejo(contador);
+  }, [contador]); // Dependencias: solo recalcular si cambia "contador"
+  
+  return (
+    <div>
+      <h1>Contador: {contador}</h1>
+      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+      
+      <h2>Valor memorizado: {valorMemorizado}</h2>
+      
+      <input 
+        type="text" 
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)}
+        placeholder="Escribe algo"
+      />
+    </div>
+  );
+}
+
+function calcularValorComplejo(contador) {
+  console.log('Calculando valor complejo...');
+  // Simular cálculo costoso
+  for (let i = 0; i < 1e6; i++) {}
+  return contador * 2;
+}
+
+export default App;
 */
 
 // ============================================

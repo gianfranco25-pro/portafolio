@@ -1,21 +1,48 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Coffee, Layers, Database, Globe } from 'lucide-react';
 import Link from "next/link";
 
+// Tipos para TypeScript
+type ExampleType = {
+  id: number;
+  title: string;
+  description: string;
+  icon: JSX.Element;
+  gradient: string;
+  reflection: string;
+  code: string;
+};
+
+type ResourceType = {
+  title: string;
+  url: string;
+  icon: JSX.Element;
+  color: string;
+  download?: boolean;
+};
+
+type ContentItemType = {
+  id: number;
+  title: string;
+  icon: JSX.Element;
+  color: string;
+  subtopics: string[];
+};
+
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('ejemplos');
-    React.useEffect(() => {
+  const [activeTab, setActiveTab] = useState<string>('ejemplos');
+    useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.location.hash === '#contenido') {
         setActiveTab('contenido');
       }
     }
   }, []);
-  const [selectedExample, setSelectedExample] = useState(null);
-  const [expandedContent, setExpandedContent] = useState(null);
-  const [exampleTab, setExampleTab] = useState('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [selectedExample, setSelectedExample] = useState<ExampleType | null>(null);
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [exampleTab, setExampleTab] = useState<string>('reflexion');
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 1,

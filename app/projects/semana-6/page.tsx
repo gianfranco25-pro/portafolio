@@ -1,13 +1,26 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Component, Layers, Box } from 'lucide-react';
 
+const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
+  { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
+  { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
+  { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+];
+
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('ejemplos');
-  const [selectedExample, setSelectedExample] = useState(null);
-  const [expandedContent, setExpandedContent] = useState(null);
-  const [exampleTab, setExampleTab] = useState('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [activeTab, setActiveTab] = useState<'contenido' | 'ejemplos' | 'recursos'>('ejemplos');
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.hash === '#contenido') {
+        setActiveTab('contenido');
+      }
+    }
+  }, []);
+  const [selectedExample, setSelectedExample] = useState<any>(null);
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [exampleTab, setExampleTab] = useState<'reflexion' | 'codigo'>('reflexion');
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 6,
@@ -17,13 +30,7 @@ export default function Page() {
     subtitle: 'JSX, Props, Children y TypeScript',
     description: 'Domina la creación de componentes en React con JSX y TypeScript. Aprende sobre props, children, componentes anidados, estilos CSS y Tailwind CSS para construir interfaces modernas y reutilizables.'
   };
-
-  const tabs = [
-    { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
-    { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
-  ];
-
+  
   const contentItems = [
     { 
       id: 1, 

@@ -4,18 +4,37 @@ import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, Externa
 import Link from "next/link";
 
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('ejemplos');
-    React.useEffect(() => {
+  type TabId = 'contenido' | 'ejemplos' | 'recursos';
+  type ExampleTabId = 'reflexion' | 'codigo';
+  type ExampleType = {
+    id: number;
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+    gradient: string;
+    reflection: string;
+    code: string;
+  };
+  type ContentItemType = {
+    id: number;
+    title: string;
+    icon: React.ReactNode;
+    color: string;
+    subtopics: string[];
+  };
+
+  const [activeTab, setActiveTab] = useState<TabId>('ejemplos');
+  React.useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.location.hash === '#contenido') {
         setActiveTab('contenido');
       }
     }
   }, []);
-  const [selectedExample, setSelectedExample] = useState(null);
-  const [expandedContent, setExpandedContent] = useState(null);
-  const [exampleTab, setExampleTab] = useState('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [selectedExample, setSelectedExample] = useState<ExampleType | null>(null);
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [exampleTab, setExampleTab] = useState<ExampleTabId>('reflexion');
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 7,
@@ -26,13 +45,13 @@ export default function Page() {
     description: 'Explora el desarrollo de aplicaciones web dinámicas utilizando Java Server Pages (JSP) y Jakarta EE, integrados con Spring. Esta semana cubre cómo crear interfaces de usuario dinámicas y conectarlas con lógica de backend.'
   };
 
-  const tabs = [
+  const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
     { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
     { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
   ];
 
-  const contentItems = [
+  const contentItems: ContentItemType[] = [
     { 
       id: 1, 
       title: 'JSP', 
@@ -58,7 +77,7 @@ export default function Page() {
     }
   ];
 
-  const examples = [
+  const examples: ExampleType[] = [
     {
       id: 1,
       title: 'JSP Page with Spring',
@@ -141,7 +160,7 @@ public class ProductServlet extends HttpServlet {
     }
   ];
 
-  const resources = [
+  const resources: { title: string; url: string; icon: React.ReactNode; color: string }[] = [
     {
       title: 'Jakarta EE Documentation',
       url: 'https://jakarta.ee/specifications/',

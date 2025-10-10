@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Coffee, Layers, Database, Palette } from 'lucide-react';
 import Link from "next/link";
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState<'ejemplos' | 'contenido' | 'recursos'>('ejemplos');
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.location.hash === '#contenido') {
         setActiveTab('contenido');
@@ -24,7 +24,7 @@ export default function Page() {
   const [selectedExample, setSelectedExample] = useState<ExampleType | null>(null);
   const [expandedContent, setExpandedContent] = useState<number | null>(null);
   const [exampleTab, setExampleTab] = useState<'reflexion' | 'codigo'>('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 2,
@@ -35,7 +35,7 @@ export default function Page() {
     description: 'Domina técnicas avanzadas de HTML5 y CSS3. Desde elementos semánticos y APIs modernas hasta layouts complejos con Flexbox y Grid, creando interfaces responsivas y accesibles.'
   };
 
-  const tabs = [
+  const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
     { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
     { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }

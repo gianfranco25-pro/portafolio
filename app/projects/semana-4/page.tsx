@@ -1,21 +1,27 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Coffee, Layers, Database } from 'lucide-react';
 import Link from "next/link";
 
+const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
+  { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
+  { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
+  { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+];
+
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('ejemplos');
-    React.useEffect(() => {
+  const [activeTab, setActiveTab] = useState<'contenido' | 'ejemplos' | 'recursos'>('ejemplos');
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.location.hash === '#contenido') {
         setActiveTab('contenido');
       }
     }
   }, []);
-  const [selectedExample, setSelectedExample] = useState(null);
-  const [expandedContent, setExpandedContent] = useState(null);
-  const [exampleTab, setExampleTab] = useState('reflexion');
-  const [isHoveringIllustration, setIsHoveringIllustration] = useState(false);
+  const [selectedExample, setSelectedExample] = useState<any>(null);
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [exampleTab, setExampleTab] = useState<'reflexion' | 'codigo'>('reflexion');
+  const [isHoveringIllustration, setIsHoveringIllustration] = useState<boolean>(false);
 
   const weekConfig = {
     number: 4,
@@ -25,13 +31,7 @@ export default function Page() {
     subtitle: 'Bootstrap, Tailwind CSS & JavaScript Avanzado',
     description: 'Domina las herramientas esenciales del desarrollo frontend moderno: frameworks CSS como Bootstrap y Tailwind, junto con JavaScript desde conceptos básicos hasta técnicas avanzadas de programación.'
   };
-
-  const tabs = [
-    { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
-    { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
-  ];
-
+  
   const contentItems = [
     { 
       id: 1, 
