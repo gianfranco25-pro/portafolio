@@ -1,7 +1,7 @@
 
 <div align="center">
   <br />
-  <img src="/atomprofile.jpg" alt="Animated Profile Atom" width="320" />
+  <img src="public/atomprofile.jpg" alt="Animated Profile Atom" width="320" />
   <br />
   <div>
     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
