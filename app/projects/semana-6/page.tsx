@@ -355,7 +355,7 @@ function Component4() {
     },
     {
       title: 'Ejercicios del PDF Componentes en React',
-      url: '/PRACTICA REALIZADA SEMANA 6.rar',
+      url: 'https://drive.google.com/drive/folders/17Q7NeHxfI8S1tAEFv8Ggsa3NOdDe8IQ9?usp=sharing',
       icon: <FileText className="w-4 h-4" />,
       color: 'from-blue-600 to-purple-800',
       download: true

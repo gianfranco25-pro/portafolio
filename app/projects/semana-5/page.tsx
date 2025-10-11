@@ -613,7 +613,7 @@ npm run preview
     },
     {
       title: 'Practica de React.js - Código Completo',
-      url: '/PRACTICA REALIZADA SEMANA 5.rar',
+      url: 'https://drive.google.com/drive/folders/17Q7NeHxfI8S1tAEFv8Ggsa3NOdDe8IQ9?usp=sharing',
       icon: <FileText className="w-4 h-4" />,
       color: 'from-yellow-600 to-orange-600',
       download: true
