@@ -434,16 +434,16 @@ style={{
 Las imágenes y recursos utilizados se encuentran en la carpeta `/public` y en el archivo `/data/index.ts`. Puedes personalizarlos para tu propio portafolio. Ejemplos destacados:
 
 <div align="center">
-  <img src="/atomprofile.jpg" alt="AnimatedProfile Atom" width="220" />
-  <img src="/profile.png" alt="Foto de Perfil" width="120" />
-  <img src="/React.svg" alt="React Icon" width="40" />
-  <img src="/JavaScript.svg" alt="JavaScript Icon" width="40" />
-  <img src="/Next.js.svg" alt="Next.js Icon" width="40" />
-  <img src="/TypeScript.svg" alt="TypeScript Icon" width="40" />
-  <img src="/HTML.svg" alt="HTML Icon" width="40" />
-  <img src="/CSS.svg" alt="CSS Icon" width="40" />
-  <img src="/python.svg" alt="Python Icon" width="40" />
-  <img src="/SQL.svg" alt="SQL Icon" width="40" />
-  <img src="/oracle.svg" alt="Oracle Icon" width="40" />
-  <img src="/cloud.svg" alt="Cloud Icon" width="40" />
+  <img src="public/atomprofile.jpg" alt="AnimatedProfile Atom" width="220" />
+  <img src="public/profile.png" alt="Foto de Perfil" width="120" />
+  <img src="public/React.svg" alt="React Icon" width="40" />
+  <img src="public/JavaScript.svg" alt="JavaScript Icon" width="40" />
+  <img src="public/Next.js.svg" alt="Next.js Icon" width="40" />
+  <img src="public/TypeScript.svg" alt="TypeScript Icon" width="40" />
+  <img src="public/HTML.svg" alt="HTML Icon" width="40" />
+  <img src="public/CSS.svg" alt="CSS Icon" width="40" />
+  <img src="public/python.svg" alt="Python Icon" width="40" />
+  <img src="public/SQL.svg" alt="SQL Icon" width="40" />
+  <img src="public/oracle.svg" alt="Oracle Icon" width="40" />
+  <img src="public/cloud.svg" alt="Cloud Icon" width="40" />
 </div>
