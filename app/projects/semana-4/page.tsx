@@ -802,9 +802,9 @@ export default function Page() {
               <ChevronLeft className="w-6 h-6" />
               Semana Anterior
             </Link>
-            <Link href="/#projects" className="px-8 py-4 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 rounded-2xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg">
+            <a href="/#projects" className="px-8 py-4 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 rounded-2xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg">
               Ver Todas las Semanas
-            </Link>
+            </a>
             <Link href="/projects/semana-5" className="flex items-center gap-3 bg-gradient-to-r from-purple-600 via-cyan-600 to-yellow-500 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:gap-4 transform hover:scale-105 text-lg">
               Siguiente Semana
               <ChevronRight className="w-6 h-6" />

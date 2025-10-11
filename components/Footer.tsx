@@ -17,10 +17,10 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
           <h1 className="heading lg:max-w-[45vw]">
-            ¿Listo para llevar <span className="text-purple">tu</span> presencia digital al siguiente nivel?
+            ¿Quieres impulsar <span className="text-purple">tu proyecto</span> o empresa con soluciones digitales a medida?
           </h1>
           <p className="text-white-200 md:mt-10 my-5 text-center">
-            Contáctame hoy y conversemos sobre cómo puedo ayudarte a alcanzar tus objetivos.
+            Hablemos y descubre cómo mi experiencia en desarrollo web puede ayudarte a destacar, optimizar procesos y lograr tus metas. ¡Estoy listo para ser parte de tu próximo reto!
           </p>
           <a href="https://wa.me/51972093359" target="_blank" rel="noopener noreferrer">
             <MagicButton
@@ -37,12 +37,15 @@ const Footer = () => {
 
         <div className="flex items-center md:gap-3 gap-6">
           {socialMedia.map((info) => (
-            <div
+            <a
               key={info.id}
+              href={info.url || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
             >
               <img src={info.img} alt="icons" width={20} height={20} />
-            </div>
+            </a>
           ))}
         </div>
       </div>

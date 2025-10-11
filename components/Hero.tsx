@@ -1,9 +1,10 @@
-import { FaLocationArrow } from "react-icons/fa6";
 
+import { FaLocationArrow } from "react-icons/fa6";
 import dynamic from "next/dynamic";
 const MagicButton = dynamic(() => import("./MagicButton"), { ssr: false });
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import AnimatedProfile from "./ui/AnimatedProfile";
 
 const Hero = () => {
   return (
@@ -61,12 +62,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex justify-center items-center lg:items-start w-full lg:w-auto">
-          <img
-            src="/profile.svg"
-            alt="Foto de Gianfranco Nuñez Delzo"
-            className="w-48 h-48 lg:w-64 lg:h-64 rounded-full shadow-2xl border-4 border-purple-400 object-cover bg-white"
-            style={{ minWidth: '12rem', minHeight: '12rem' }}
-          />
+          <AnimatedProfile />
         </div>
       </div>
     </div>

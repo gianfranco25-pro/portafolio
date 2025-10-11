@@ -347,6 +347,20 @@ function Component4() {
 
   const resources = [
     {
+      title: 'PDF: Componentes en React',
+      url: '/ComponentesenReact.pdf',
+      icon: <FileText className="w-4 h-4" />,
+      color: 'from-blue-600 to-purple-800',
+      download: true
+    },
+    {
+      title: 'Ejercicios del PDF Componentes en React',
+      url: '/PRACTICA REALIZADA SEMANA 6.rar',
+      icon: <FileText className="w-4 h-4" />,
+      color: 'from-blue-600 to-purple-800',
+      download: true
+    },
+    {
       title: 'React Official Documentation',
       url: 'https://react.dev/',
       icon: <ExternalLink className="w-4 h-4" />,
@@ -382,13 +396,7 @@ function Component4() {
       icon: <ExternalLink className="w-4 h-4" />,
       color: 'from-pink-500 to-rose-500'
     },
-    {
-      title: 'PDF: Componentes en React',
-      url: '/ComponentesenReact.pdf',
-      icon: <FileText className="w-4 h-4" />,
-      color: 'from-blue-600 to-purple-800',
-      download: true
-    }
+    
   ];
 
   return (

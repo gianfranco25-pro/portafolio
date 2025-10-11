@@ -7,50 +7,49 @@ const Approach = () => {
   return (
     <section className="w-full py-20">
       <h1 className="heading">
-        Mi <span className="text-purple">metodología</span>
+        PROYECTOS <span className="text-purple">RELEVANTES</span>
       </h1>
-      {/* remove bg-white dark:bg-black */}
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
-        {/* add des prop */}
         <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements."
+          title="Sistema de Asistencia con Detección Facial – I.E.P. Perú Birf, Sicaya"
+          icon={<AceternityIcon order="Proyect 1" />}
+          des={[
+            "Desarrollo de sistema de control de asistencia con reconocimiento facial y panel web de datos en tiempo real.",
+            "Ejecución de pruebas unitarias y funcionales, mejorando en 100% la precisión de registros y reduciendo en 70% el tiempo de control manual.",
+            "Documentación técnica de requerimientos y procesos implementados."
+          ]}
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
-            // add these classed for the border rounded overflowing -> rounded-3xl overflow-hidden
             containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
           />
         </Card>
         <Card
-          title="Desarrollo y Actualización"
-          icon={<AceternityIcon order="Fase 2" />}
-          des="Una vez acordado el plan, comienzo el desarrollo. Desde los primeros bocetos hasta el código final, te mantengo informado en cada paso."
+          title="Software de Gestión de Inventario – Calzados Monrroy"
+          icon={<AceternityIcon order="proyect 2" />}
+          des={[
+            "Desarrollo de sistema de ventas e inventario con Java y SQL Server.",
+            "Implementación de reportes automáticos en Power BI que redujeron un 25% el tiempo de control de inventarios y mejoraron la disponibilidad de productos en un 15%."
+          ]}
         >
           <CanvasRevealEffect
             animationSpeed={3}
-            // change bg-black to bg-pink-900
             containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
             colors={[
-              // change the colors of the
               [255, 166, 158],
               [221, 255, 247],
             ]}
             dotSize={2}
           />
-          {/* Radial gradient for the cute fade */}
-          {/* remove this one */}
-          {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
         </Card>
         <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          des="This is where the magic happens! Based on the approved design, 
-          I'll translate everything into functional code, building your website
-          from the ground up."
+          title="Proyecto 3: Plataforma PersonalClass"
+          icon={<AceternityIcon order="Proyect 3" />}
+          des={[
+            "Diseño de una plataforma web integral para la gestión escolar llamada PersonalClass.",
+            "Incluye módulos para administración de alumnos, docentes, asistencia, calificaciones y comunicación institucional.",
+            "Enfoque en experiencia de usuario, seguridad y escalabilidad para colegios."
+          ]}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -69,13 +68,13 @@ const Card = ({
   title,
   icon,
   children,
-  // add this one for the desc
+ 
   des,
 }: {
   title: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
-  des: string;
+  des: string | string[];
 }) => {
   const [hovered, setHovered] = React.useState(false);
   return (
@@ -129,14 +128,23 @@ const Card = ({
           {title}
         </h2>
         {/* add this one for the description */}
-        <p
-          className="text-sm opacity-0 group-hover/canvas-card:opacity-100
-         relative z-10 mt-4 group-hover/canvas-card:text-white text-center
-         group-hover/canvas-card:-translate-y-2 transition duration-200"
-          style={{ color: "#E4ECFF" }}
-        >
-          {des}
-        </p>
+        {Array.isArray(des) ? (
+          <ul
+            className="text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 mt-4 group-hover/canvas-card:text-white text-left group-hover/canvas-card:-translate-y-2 transition duration-200 list-disc list-inside"
+            style={{ color: "#E4ECFF" }}
+          >
+            {des.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p
+            className="text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 mt-4 group-hover/canvas-card:text-white text-center group-hover/canvas-card:-translate-y-2 transition duration-200"
+            style={{ color: "#E4ECFF" }}
+          >
+            {des}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -156,7 +164,7 @@ const AceternityIcon = ({ order }: { order: string }) => {
         />
         <span
           className="inline-flex h-full w-full cursor-pointer items-center 
-        justify-center rounded-full bg-slate-950 px-5 py-2 text-purple backdrop-blur-3xl font-bold text-2xl"
+        justify-center rounded-full bg-slate-950 px-4 py-1.5 text-purple backdrop-blur-3xl font-bold text-lg md:text-xl"
         >
           {order}
         </span>

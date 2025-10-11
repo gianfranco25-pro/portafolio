@@ -95,6 +95,7 @@ export default function Page() {
       icon: <Zap className="w-5 h-5 text-yellow-600" />,
       gradient: 'from-yellow-500 via-orange-500 to-red-500',
       reflection: 'La Práctica Calificada 3 demostró dominio avanzado de JavaScript vanilla sin frameworks. La ruleta dinámica requirió manipulación del DOM, animaciones CSS con transform/rotate, y cálculos matemáticos para subdividir sectores. El sistema de eventos incluyó tanto clicks como teclas especiales (SPACE, S, E, R, F). LocalStorage permitió persistencia de datos entre sesiones. El sorteo de equipos implementó algoritmos de aleatorización y generación dinámica de elementos. La exportación a JPG requirió canvas/html2canvas, y la funcionalidad de copiar al portapapeles usó la API Clipboard.',
+      
       code: `// Ejemplo: Ruleta dinámica con JavaScript puro
 
 // Variables globales
@@ -611,6 +612,13 @@ npm run preview
       download: true
     },
     {
+      title: 'Practica de React.js - Código Completo',
+      url: '/PRACTICA REALIZADA SEMANA 5.rar',
+      icon: <FileText className="w-4 h-4" />,
+      color: 'from-yellow-600 to-orange-600',
+      download: true
+    },
+    {
       title: 'PDF Introducción a React',
       url: '/IntroduccionReact.pdf',
       icon: <FileText className="w-4 h-4" />,
@@ -953,9 +961,26 @@ npm run preview
                             {selectedExample?.icon}
                           </div>
                         </div>
-                        <h3 className="text-4xl font-black">
-                          {selectedExample?.title}
-                        </h3>
+                        <div className="flex flex-col gap-3">
+                          <h3 className="text-4xl font-black">
+                            {selectedExample?.title}
+                          </h3>
+                          {/* Botón GitHub solo para Práctica Calificada 3 */}
+                          {selectedExample?.id === 1 && (
+                            <a
+                              href="https://github.com/giannunezdelzo-prog/Practica-3"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-1 rounded-lg bg-white/20 text-white font-semibold shadow hover:bg-white/30 transition-all duration-300 border border-white/30 text-base"
+                              style={{ maxWidth: '170px', minWidth: '120px' }}
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-1">
+                                <path d="M12 2C6.477 2 2 6.484 2 12.012c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.34-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.396.099 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.175 22 16.427 22 12.012 22 6.484 17.523 2 12 2z" />
+                              </svg>
+                              Ver en GitHub
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
 

@@ -1,7 +1,7 @@
 
 <div align="center">
   <br />
-    <img src="/profile.svg" alt="Portfolio Banner" width="320" />
+  <img src="/atomprofile.jpg" alt="Animated Profile Atom" width="320" />
   <br />
   <div>
     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
@@ -11,7 +11,7 @@
   </div>
   <h3 align="center">Portafolio Personal - Gianfranco Nuñez Delzo</h3>
   <div align="center">
-    Este portafolio muestra mi trabajo, proyectos relevantes, experiencia y metodología de desarrollo. ¡Explora cada semana para ver ejemplos prácticos y recursos!
+    Este portafolio muestra mi trabajo, proyectos relevantes, experiencia y metodología de desarrollo. Incluye animaciones avanzadas como el <b>AnimatedProfile</b> (ver imagen arriba), ejemplos prácticos por semana, y recursos descargables. ¡Explora cada semana para ver ejemplos prácticos y recursos!
   </div>
 </div>
 
@@ -40,7 +40,7 @@ Este portafolio está construido con Next.js, Tailwind CSS, Three.js y Lucide Ic
 
 ## 🤖 Introducción
 
-Este portafolio es una muestra de mi crecimiento profesional y académico. Cada sección está pensada para resaltar mis habilidades técnicas, proyectos destacados y mi metodología de trabajo colaborativo.
+Este portafolio es una muestra de mi crecimiento profesional y académico. Cada sección está pensada para resaltar mis habilidades técnicas, proyectos destacados y mi metodología de trabajo colaborativo. Incluye componentes visuales como <b>AnimatedProfile</b> (imagen atomprofile.jpg), tarjetas animadas, y recursos interactivos.
 
 
 ## ⚙️ Tecnologías Utilizadas
@@ -95,9 +95,13 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el 
 
 El portafolio está organizado en carpetas como:
 - `/app/projects/semana-1` a `/app/projects/semana-7`: Cada semana tiene su propia página con ejemplos y recursos.
-- `/components`: Componentes reutilizables para UI, animaciones y efectos.
+- `/components`: Componentes reutilizables para UI, animaciones y efectos (incluye <b>AnimatedProfile</b>).
 - `/data/index.ts`: Datos de navegación, proyectos, experiencia y testimonios.
-- `/public`: Imágenes y recursos estáticos.
+- `/public`: Imágenes y recursos estáticos importantes:
+  - <b>atomprofile.jpg</b>: Imagen principal del componente AnimatedProfile.
+  - <b>profile.png</b>: Foto de perfil utilizada en la animación.
+  - <b>React.svg, JavaScript.svg, Next.js.svg, TypeScript.svg, HTML.svg, CSS.svg, python.svg, SQL.svg, oracle.svg, cloud.svg</b>: Iconos de tecnologías orbitando el perfil.
+  - Otros recursos visuales y descargas.
 
 <details>
 <summary><code>tailwind.config.ts</code></summary>
@@ -427,4 +431,19 @@ style={{
 
 ## 🔗 Recursos y Assets
 
-Las imágenes y recursos utilizados se encuentran en la carpeta `/public` y en el archivo `/data/index.ts`. Puedes personalizarlos para tu propio portafolio.
+Las imágenes y recursos utilizados se encuentran en la carpeta `/public` y en el archivo `/data/index.ts`. Puedes personalizarlos para tu propio portafolio. Ejemplos destacados:
+
+<div align="center">
+  <img src="/atomprofile.jpg" alt="AnimatedProfile Atom" width="220" />
+  <img src="/profile.png" alt="Foto de Perfil" width="120" />
+  <img src="/React.svg" alt="React Icon" width="40" />
+  <img src="/JavaScript.svg" alt="JavaScript Icon" width="40" />
+  <img src="/Next.js.svg" alt="Next.js Icon" width="40" />
+  <img src="/TypeScript.svg" alt="TypeScript Icon" width="40" />
+  <img src="/HTML.svg" alt="HTML Icon" width="40" />
+  <img src="/CSS.svg" alt="CSS Icon" width="40" />
+  <img src="/python.svg" alt="Python Icon" width="40" />
+  <img src="/SQL.svg" alt="SQL Icon" width="40" />
+  <img src="/oracle.svg" alt="Oracle Icon" width="40" />
+  <img src="/cloud.svg" alt="Cloud Icon" width="40" />
+</div>
