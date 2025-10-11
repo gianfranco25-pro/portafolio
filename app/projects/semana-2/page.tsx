@@ -752,7 +752,7 @@ export default function Page() {
     },
     {
       title: 'Descargar ZIP: Grupo1 - html5avanzado-main',
-      url: '/Grupo1 - html5avanzado-main (1).zip',
+      url: '/Grupo1 - html5avanzado-main.zip',
       icon: <FileText className="w-4 h-4" />,
       color: 'from-green-500 to-teal-500',
       download: true
