@@ -2,18 +2,29 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Component, Layers, Box } from 'lucide-react';
 
+import WeekNav from "@/components/WeekNav";
+
 const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
   { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
   { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
-  { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+  { id: 'recursos', label: 'Bibliografía', icon: <Sparkles className="w-4 h-4" /> }
 ];
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState<'contenido' | 'ejemplos' | 'recursos'>('ejemplos');
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (window.location.hash === '#contenido') {
+      const { hash } = window.location;
+      if (hash === '#contenido') {
         setActiveTab('contenido');
+      } else if (hash === '#bibliografia') {
+        setActiveTab('recursos');
+        setTimeout(() => {
+          const target = document.getElementById('bibliografia');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       }
     }
   }, []);
@@ -284,6 +295,7 @@ function Component1() {
 
 // 2. Módulos CSS (estilos.module.css)
 import styles from '../css/estilos.module.css';
+import WeekNav from "@/components/WeekNav";
 
 function Component2() {
   return <div className={styles.card}>Contenido</div>;
@@ -428,6 +440,7 @@ function Component4() {
             <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
             <span className="font-semibold">Volver</span>
           </a>
+          <WeekNav currentWeek={weekConfig.number} />
 
           <div className="flex items-center justify-between gap-12">
             <div className="flex-1 space-y-6">
@@ -705,12 +718,12 @@ function Component4() {
           )}
 
           {activeTab === 'recursos' && (
-            <div className="space-y-10">
+            <div id="bibliografia" className="space-y-10">
               <div className="flex items-center gap-4 mb-10">
                 <div className="p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl shadow-2xl">
                   <Sparkles className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-4xl font-black text-gray-800">Recursos Adicionales</h3>
+                <h3 className="text-4xl font-black text-gray-800">Bibliografía</h3>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">

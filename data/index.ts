@@ -1,6 +1,8 @@
 export const navItems = [
   { name: "Sobre mí", link: "#about" },
-  { name: "Proyectos", link: "#projects" },
+  { name: "Proyectos", link: "#relevant-projects" },
+  { name: "Cuaderno", link: "#projects" },
+  { name: "Bibliografía", link: "#bibliografia" },
   { name: "Certificaciones", link: "#testimonials" },
   { name: "Contacto", link: "#contact" },
 ];
@@ -72,68 +74,30 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Semana 1",
-    des: "Conoce los fundamentos de las tecnologías web, estándares internacionales, funcionamiento de la web (DNS, HTTP, TCP/IP), roles en el desarrollo web y configuración del entorno de desarrollo con Visual Studio Code.",
+    title: "Unidad 1",
+    des: "Semanas 1 a 7: fundamentos web, HTML/CSS avanzado, practicas calificadas, frameworks y React.",
     img: "/p5.png",
-    iconLists: ["/HTML.svg", "/CSS.svg", "/JavaScript.svg", "/Visual Studio Code.svg", "/GitHub.svg"],
-    link: "/ui.earth.com",
+    iconLists: [
+      "/HTML.svg",
+      "/CSS.svg",
+      "/JavaScript.svg",
+      "/Tailwind CSS.svg",
+      "/React.svg"
+    ],
+    link: "",
     slug: "semana-1",
   },
   {
     id: 2,
-    title: "Semana 2",
-    des: "Domina técnicas avanzadas de HTML5 y CSS3. Desde elementos semánticos y APIs modernas hasta layouts complejos con Flexbox y Grid, creando interfaces responsivas y accesibles.",
+    title: "Unidad 2",
+    des: "Proximamente: semanas 8 a 15.",
     img: "/p6.png",
-    iconLists: ["/HTML.svg", "/CSS.svg", "/SVG.svg"],
-    link: "/ui.yoom.com",
-    slug: "semana-2",
-  },
-  {
-    id: 3,
-    title: "Semana 3",
-    des: "Desarrollo de prácticas calificadas en equipos de 3 personas utilizando Git/GitHub para control de versiones. Implementación de componentes web con HTML/CSS puro y Tailwind CSS.",
-    img: "/p3.svg",
-    iconLists: ["/HTML.svg", "/CSS.svg", "/Tailwind CSS.svg", "/GitHub.svg"],
-    link: "/ui.aiimg.com",
-    slug: "semana-3",
-  },
-  {
-    id: 4,
-    title: "Semana 4",
-    des: "Domina las herramientas esenciales del desarrollo frontend moderno: frameworks CSS como Bootstrap y Tailwind, junto con JavaScript desde conceptos básicos hasta técnicas avanzadas de programación.",
-    img: "/p4.svg",
-    iconLists: ["/Bootstrap.svg", "/Tailwind CSS.svg", "/JavaScript.svg", "/SASS.svg", "/CSS.svg"],
-    link: "/ui.apple.com",
-    slug: "semana-4",
-  },
-  {
-    id: 5,
-    title: "Semana 5",
-    des: "Desarrollo de aplicaciones interactivas con JavaScript puro: ruletas dinámicas, sorteo de equipos, LocalStorage. Introducción a React.js: herramientas de desarrollo, Vite, Create React App y Next.js.",
-    img: "/p3.svg",
-    iconLists: [ "/React.svg", "/Vite.svg", "/Create React App.svg", "/Next.js.svg"],
-    link: "/ui.taskmanager.com",
-    slug: "semana-5",
-  },
-  {
-    id: 6,
-    title: "Semana 6",
-    des: "Domina la creación de componentes en React con JSX y TypeScript. Aprende sobre props, children, componentes anidados, estilos CSS y Tailwind CSS para construir interfaces modernas y reutilizables.",
-    img: "/p4.svg",
-    iconLists: ["/React.svg", "/TypeScript.svg", "/Tailwind CSS.svg", "/JSX.svg"],
-    link: "/ui.finance.com",
-    slug: "semana-6",
-  },
-  {
-    id: 7,
-    title: "Semana 7",
-    des: "Presenta tus proyectos con animaciones modernas y diseño profesional.",
-    img: "/p1.svg",
-    iconLists: ["/react.svg", "/next.svg", "/tail.svg"],
-    link: "/ui.portfolio.com",
-    slug: "semana-7",
+    iconLists: ["/TypeScript.svg", "/Next.js.svg"],
+    link: "",
+    slug: "",
   },
 ];
+
 
 export const testimonials = [
   {

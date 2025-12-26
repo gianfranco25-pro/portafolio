@@ -10,21 +10,20 @@ const RecentProjects = () => {
   return (
     <div id="projects" className="py-20">
       <h1 className="heading">
-        Una pequeña selección de
-        <span className="text-purple"> proyectos recientes</span>
+        Cuaderno universitario de
+        <span className="text-purple"> Desarrollo de Aplicaciones Web</span>
       </h1>
+      <p className="text-white-200 mt-4 text-center">
+        Semanas 1 a 15
+      </p>
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
-        {projects.map((item) => (
-              <Link
-                href={`/projects/${item.slug}#contenido`}
-                key={item.id}
-                className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
-                style={{ textDecoration: "none" }}
-              >
-                <PinContainer
-                  title={"Ver"}
-                  href={undefined}
-                >
+        {projects.map((item) => {
+          const hasLink = Boolean(item.slug);
+          const card = (
+            <PinContainer
+              title={hasLink ? "Ver" : "Pronto"}
+              href={hasLink ? `/projects/${item.slug}#contenido` : undefined}
+            >
                 <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                   <div
                     className="relative w-full h-full overflow-hidden lg:rounded-3xl"
@@ -70,17 +69,43 @@ const RecentProjects = () => {
 
                   <div className="flex justify-center items-center pointer-events-none">
                     <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                      Ver sitio de la semana
+                      {hasLink ? "Ver unidad" : "Proximamente"}
                     </p>
-                    <FaLocationArrow className="ms-3" color="#CBACF9" />
+                    {hasLink && (
+                      <FaLocationArrow className="ms-3" color="#CBACF9" />
+                    )}
                   </div>
                 </div>
               </PinContainer>
-            </Link>
-        ))}
+          );
+
+          if (hasLink) {
+            return (
+              <Link
+                href={`/projects/${item.slug}#contenido`}
+                key={item.id}
+                className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+                style={{ textDecoration: "none" }}
+              >
+                {card}
+              </Link>
+            );
+          }
+
+          return (
+            <div
+              key={item.id}
+              className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] cursor-default"
+              aria-disabled="true"
+            >
+              {card}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
 export default RecentProjects;
+

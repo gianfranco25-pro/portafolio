@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Coffee, Layers, Database, Globe } from 'lucide-react';
 import Link from "next/link";
+import WeekNav from "@/components/WeekNav";
 
 // Tipos para TypeScript
 type ExampleType = {
@@ -34,8 +35,17 @@ export default function Page() {
   const [activeTab, setActiveTab] = useState<string>('ejemplos');
     useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (window.location.hash === '#contenido') {
+      const { hash } = window.location;
+      if (hash === '#contenido') {
         setActiveTab('contenido');
+      } else if (hash === '#bibliografia') {
+        setActiveTab('recursos');
+        setTimeout(() => {
+          const target = document.getElementById('bibliografia');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       }
     }
   }, []);
@@ -56,7 +66,7 @@ export default function Page() {
   const tabs = [
     { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'ejemplos', label: 'Ejemplos Prácticos', icon: <Code className="w-4 h-4" /> },
-    { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+    { id: 'recursos', label: 'Bibliografía', icon: <Sparkles className="w-4 h-4" /> }
   ];
 
   const contentItems = [
@@ -315,6 +325,7 @@ git clone https://github.com/usuario/repo.git`
             <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
             <span className="font-semibold">Volver</span>
           </Link>
+          <WeekNav currentWeek={weekConfig.number} />
 
           <div className="flex items-center justify-between gap-12">
             <div className="flex-1 space-y-6">
@@ -659,13 +670,13 @@ git clone https://github.com/usuario/repo.git`
 
           {/* Recursos Tab */}
           {activeTab === 'recursos' && (
-            <div className="space-y-10">
+            <div id="bibliografia" className="space-y-10">
               <div className="flex items-center gap-4 mb-10">
                 <div className="p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl shadow-2xl">
                   <Sparkles className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-4xl font-black text-gray-800">
-                  Recursos Adicionales
+                  Bibliografía
                 </h3>
               </div>
               

@@ -2,18 +2,29 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowLeft, Code, FileText, BookOpen, ExternalLink, Sparkles, Zap, Settings, PackageOpen, Blocks } from 'lucide-react';
 
+import WeekNav from "@/components/WeekNav";
+
 const tabs: { id: 'contenido' | 'ejemplos' | 'recursos'; label: string; icon: JSX.Element }[] = [
   { id: 'contenido', label: 'Contenido', icon: <BookOpen className="w-4 h-4" /> },
   { id: 'ejemplos', label: 'Prácticas', icon: <Code className="w-4 h-4" /> },
-  { id: 'recursos', label: 'Recursos', icon: <Sparkles className="w-4 h-4" /> }
+  { id: 'recursos', label: 'Bibliografía', icon: <Sparkles className="w-4 h-4" /> }
 ];
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState<'contenido' | 'ejemplos' | 'recursos'>('ejemplos');
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (window.location.hash === '#contenido') {
+      const { hash } = window.location;
+      if (hash === '#contenido') {
         setActiveTab('contenido');
+      } else if (hash === '#bibliografia') {
+        setActiveTab('recursos');
+        setTimeout(() => {
+          const target = document.getElementById('bibliografia');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       }
     }
   }, []);
@@ -108,7 +119,7 @@ let elementosOcultos = [];
 function cargarDatosLocalStorage() {
     const datosGuardados = localStorage.getItem('elementosRuleta');
     if (datosGuardados) {
-        elementos = datosGuardados.split('\\n').filter(e => e.trim());
+        elementos = datosGuardados.split('\n').filter(e => e.trim());
         actualizarTextArea();
         dibujarRuleta();
     }
@@ -118,7 +129,7 @@ function cargarDatosLocalStorage() {
 function guardarEnLocalStorage() {
     const textarea = document.getElementById('textarea-elementos');
     localStorage.setItem('elementosRuleta', textarea.value);
-    elementos = textarea.value.split('\\n').filter(e => e.trim());
+    elementos = textarea.value.split('\n').filter(e => e.trim());
     dibujarRuleta();
 }
 
@@ -235,7 +246,7 @@ cargarDatosLocalStorage();
 
 function generarEquiposAleatorios() {
     const participantes = document.getElementById('textarea-participantes')
-        .value.split('\\n').filter(p => p.trim());
+        .value.split('\n').filter(p => p.trim());
     
     const cantidadEquipos = parseInt(document.getElementById('cantidad-equipos').value);
     const tituloEquipo = document.getElementById('titulo-equipo').value;
@@ -513,6 +524,7 @@ export default Lista;
 
 /*
 import React, { useState, useMemo } from 'react';
+import WeekNav from "@/components/WeekNav";
 
 function App() {
   const [contador, setContador] = useState(0);
@@ -694,6 +706,7 @@ npm run preview
             <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
             <span className="font-semibold">Volver</span>
           </a>
+          <WeekNav currentWeek={weekConfig.number} />
 
           <div className="flex items-center justify-between gap-12">
             <div className="flex-1 space-y-6">
@@ -1043,7 +1056,7 @@ npm run preview
 
           {/* Recursos Tab */}
           {activeTab === 'recursos' && (
-            <div className="space-y-10">
+            <div id="bibliografia" className="space-y-10">
               <div className="flex items-center gap-4 mb-10">
                 <div className="p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl shadow-2xl">
                   <Sparkles className="w-7 h-7 text-white" />
