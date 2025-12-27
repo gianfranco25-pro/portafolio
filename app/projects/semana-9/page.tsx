@@ -1,6 +1,7 @@
-"use client";
+﻿"use client";
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Box, Server, Database, Globe, Layers, Package, FileCode, Shield, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Box, Server, Database, Globe, Layers, Package, FileCode, Shield, Zap, Home } from 'lucide-react';
+import WeekNav from '@/components/WeekNav';
 
 const weekConfig = {
 	number: 9,
@@ -128,6 +129,7 @@ export default function Week9Page() {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50">
+			<WeekNav currentWeek={weekConfig.number} />
 			{/* Header animado */}
 			<div className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-yellow-400 to-red-500 text-white">
 				<div className="absolute inset-0 opacity-20">
@@ -140,6 +142,15 @@ export default function Week9Page() {
 					<div className="flex items-center gap-4 mb-6 animate-fade-in">
 						<div className="text-6xl animate-float">{weekConfig.icon}</div>
 						<div>
+							<div className="mb-4 -mt-6 -ml-8">
+								<a
+									href="/"
+									className="inline-flex items-center gap-3 rounded-full bg-white/15 px-5 py-2.5 text-base font-bold uppercase tracking-wide text-white transition hover:bg-white/25 hover:scale-[1.02]"
+								>
+									<Home className="h-5 w-5" />
+									Inicio
+								</a>
+							</div>
 							<div className="text-orange-100 font-bold text-lg mb-2">SEMANA {weekConfig.number}</div>
 							<h1 className="text-4xl md:text-5xl font-black mb-2">{weekConfig.title}</h1>
 							<p className="text-xl text-orange-100 font-semibold">{weekConfig.subtitle}</p>
@@ -189,7 +200,7 @@ export default function Week9Page() {
 									<li><b>Multi-Page Application (MPA):</b> Aplicaciones web tradicionales donde cada página tiene su propio archivo HTML, CSS y JavaScript. Cada navegación carga una página completamente nueva del servidor.</li>
 									<li><b>Single Page Application (SPA):</b> El servidor envía una sola página HTML inicial con todo el código. JavaScript se encarga de mostrar diferentes vistas sin recargar. Solo solicita datos puros al servidor.</li>
 									<li><b>Arquitectura Híbrida:</b> Combina características de MPA y SPA, permitiendo componentes dinámicos dentro de una estructura multipágina (ejemplo: Next.js).</li>
-									<li><b>Arquitectura Hexagonal:</b> Separa la aplicación en capas independientes usando "puertos y adaptadores". Permite que cada parte evolucione por separado y sea más fácil de mantener.</li>
+									<li><b>Arquitectura Hexagonal:</b> Separa la aplicación en capas independientes usando &quot;puertos y adaptadores&quot;. Permite que cada parte evolucione por separado y sea más fácil de mantener.</li>
 								</ul>
 								<div className="flex justify-center my-6">
 									<img src="/Diagrama%20de%20Arquitectura%20Hexagonal.png" alt="Diagrama de Arquitectura Hexagonal" className="rounded-xl border shadow max-w-full h-auto" />
@@ -407,7 +418,7 @@ javac 19.0.2`}
 								
 								<div className="flex flex-col gap-4 my-4">
 									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Pantalla de descarga de IntelliJ IDEA]</div>
-									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Pantalla de "New Project" en IntelliJ seleccionando Java Enterprise]</div>
+									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Pantalla de &quot;New Project&quot; en IntelliJ seleccionando Java Enterprise]</div>
 									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Configuración del proyecto con Maven y Tomcat]</div>
 									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Estructura de directorios del proyecto creado]</div>
 								</div>
@@ -447,9 +458,9 @@ javac 19.0.2`}
 								
 								<p className="text-base text-gray-700 font-semibold mt-4">▶️ Ejecución del Proyecto:</p>
 								<ul className="list-disc pl-8 text-base text-gray-700 space-y-1">
-									<li>Configuré la ejecución del proyecto haciendo clic en "Add Configuration"</li>
+									<li>Configuré la ejecución del proyecto haciendo clic en &quot;Add Configuration&quot;</li>
 									<li>Seleccioné el servidor Tomcat previamente configurado</li>
-									<li>Hice clic en el botón "Run" (▶️) para desplegar la aplicación</li>
+									<li>Hice clic en el botón &quot;Run&quot; (▶️) para desplegar la aplicación</li>
 									<li>El navegador se abrió automáticamente mostrando la aplicación</li>
 								</ul>
 								

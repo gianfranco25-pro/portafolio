@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Box, Server, Database, Globe, Layers, Package, FileCode, Shield, Zap, Coffee } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Box, Server, Database, Globe, Layers, Package, FileCode, Shield, Zap, Coffee, Home } from 'lucide-react';
+import WeekNav from '@/components/WeekNav';
 
 const weekConfig = {
-	number: 10,
+	number: 12,
 	icon: '☕',
-	iconBg: 'bg-gradient-to-br from-green-500 via-emerald-400 to-teal-500',
-	title: 'Jakarta Server Pages (JSP) y Spring Boot',
+	iconBg: 'bg-gradient-to-br from-amber-500 via-orange-400 to-rose-500',
+	title: 'REFORZAMIENTO DE SEMANA 10',
 	subtitle: 'Desarrollo de API REST y Patrón MVC',
 	description: 'Domina JSP, Spring Framework, Maven y la creación de API REST con Spring Boot para aplicaciones empresariales modernas.'
 };
@@ -23,25 +24,25 @@ const recursos = [
 		title: 'Jakarta Server Pages Documentation',
 		url: 'https://jakarta.ee/specifications/pages/',
 		icon: <FileCode className="w-6 h-6" />,
-		color: 'from-green-500 to-emerald-500'
+		color: 'from-amber-500 to-orange-500'
 	},
 	{
 		title: 'Spring Boot Official Guide',
 		url: 'https://spring.io/guides',
 		icon: <Server className="w-6 h-6" />,
-		color: 'from-emerald-500 to-teal-500'
+		color: 'from-amber-500 to-rose-500'
 	},
 	{
 		title: 'Spring Initializr',
 		url: 'https://start.spring.io/',
 		icon: <Package className="w-6 h-6" />,
-		color: 'from-teal-500 to-cyan-500'
+		color: 'from-rose-500 to-pink-500'
 	},
 	{
 		title: 'Maven Repository',
 		url: 'https://mvnrepository.com/',
 		icon: <Database className="w-6 h-6" />,
-		color: 'from-green-600 to-emerald-600'
+		color: 'from-amber-600 to-orange-600'
 	},
 	{
 		title: 'Postman API Testing',
@@ -53,7 +54,7 @@ const recursos = [
 		title: 'Spring Framework Documentation',
 		url: 'https://docs.spring.io/spring-framework/reference/',
 		icon: <Shield className="w-6 h-6" />,
-		color: 'from-emerald-600 to-teal-600'
+		color: 'from-rose-600 to-pink-600'
 	},
 ];
 
@@ -72,22 +73,32 @@ export default function Week10Page() {
 	const [activeTab, setActiveTab] = useState('contenido');
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+		<div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
+			<WeekNav currentWeek={weekConfig.number} />
 			{/* Header animado */}
-			<div className="relative overflow-hidden bg-gradient-to-br from-green-500 via-emerald-400 to-teal-500 text-white">
+			<div className="relative overflow-hidden bg-gradient-to-br from-amber-500 via-orange-400 to-rose-500 text-white">
 				<div className="absolute inset-0 opacity-20">
 					<div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
-					<div className="absolute top-0 right-10 w-72 h-72 bg-emerald-200 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
-					<div className="absolute -bottom-8 left-20 w-72 h-72 bg-teal-200 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-4000"></div>
+					<div className="absolute top-0 right-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
+					<div className="absolute -bottom-8 left-20 w-72 h-72 bg-rose-200 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-4000"></div>
 				</div>
 				
 				<div className="relative container mx-auto px-6 py-16">
 					<div className="flex items-center gap-4 mb-6 animate-fade-in">
 						<div className="text-6xl animate-float">{weekConfig.icon}</div>
 						<div>
-							<div className="text-emerald-100 font-bold text-lg mb-2">SEMANA {weekConfig.number}</div>
+							<div className="mb-4 -mt-6 -ml-8">
+								<a
+									href="/"
+									className="inline-flex items-center gap-3 rounded-full bg-white/15 px-5 py-2.5 text-base font-bold uppercase tracking-wide text-white transition hover:bg-white/25 hover:scale-[1.02]"
+								>
+									<Home className="h-5 w-5" />
+									Inicio
+								</a>
+							</div>
+							<div className="text-amber-100 font-bold text-lg mb-2">SEMANA {weekConfig.number}</div>
 							<h1 className="text-4xl md:text-5xl font-black mb-2">{weekConfig.title}</h1>
-							<p className="text-xl text-emerald-100 font-semibold">{weekConfig.subtitle}</p>
+							<p className="text-xl text-amber-100 font-semibold">{weekConfig.subtitle}</p>
 						</div>
 					</div>
 					<p className="text-lg text-white/90 max-w-3xl animate-fade-in animation-delay-200">{weekConfig.description}</p>
@@ -104,7 +115,7 @@ export default function Week10Page() {
 								onClick={() => setActiveTab(tab.id)}
 								className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-300 whitespace-nowrap ${
 									activeTab === tab.id
-										? 'bg-gradient-to-r from-green-600 to-teal-500 text-white shadow-xl scale-105'
+										? 'bg-gradient-to-r from-amber-600 to-rose-500 text-white shadow-xl scale-105'
 										: 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:scale-105'
 								}`}
 							>
@@ -122,8 +133,8 @@ export default function Week10Page() {
 					{/* Tab Contenido */}
 					{activeTab === 'contenido' && (
 						<div className="w-full flex justify-center">
-							<div className="w-full max-w-4xl bg-white/95 rounded-3xl shadow-2xl p-10 md:p-14 border border-emerald-100">
-								<h2 className="text-3xl md:text-4xl font-black text-green-600 mb-6">📖 TEMAS APRENDIDOS</h2>
+							<div className="w-full max-w-4xl bg-white/95 rounded-3xl shadow-2xl p-10 md:p-14 border border-amber-100">
+								<h2 className="text-3xl md:text-4xl font-black text-amber-600 mb-6">📖 TEMAS APRENDIDOS</h2>
 								
 								<h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-8 mb-2">Tema 1: Apache Tomcat - Servidor Web</h3>
 								<p className="text-lg text-gray-700 mb-4">
@@ -211,8 +222,8 @@ export default function Week10Page() {
 					{/* Tab Prácticas */}
 					{activeTab === 'practicas' && (
 						<div className="w-full flex justify-center">
-							<div className="w-full max-w-4xl bg-white/95 rounded-3xl shadow-2xl p-10 md:p-14 border border-emerald-100">
-								<h2 className="text-3xl md:text-4xl font-black text-green-600 mb-6">EJERCICIOS DE LABORATORIO - RESULTADOS</h2>
+							<div className="w-full max-w-4xl bg-white/95 rounded-3xl shadow-2xl p-10 md:p-14 border border-amber-100">
+								<h2 className="text-3xl md:text-4xl font-black text-amber-600 mb-6">EJERCICIOS DE LABORATORIO - RESULTADOS</h2>
 								
 								<h3 className="text-2xl font-bold text-gray-800 mt-8 mb-2">Ejercicio 1: Instalación de JDK Jakarta y Tomcat</h3>
 								<p className="text-base text-gray-700 mb-3"><b>Procedimiento realizado:</b></p>
@@ -224,7 +235,7 @@ export default function Week10Page() {
 								</ul>
 								
 								<p className="text-base text-gray-700 font-semibold mt-4">✅ Resultado:</p>
-								<ul className="list-none pl-0 text-base text-green-700 space-y-1 mb-4">
+								<ul className="list-none pl-0 text-base text-amber-700 space-y-1 mb-4">
 									<li>✓ JDK instalado correctamente</li>
 									<li>✓ Tomcat ejecutándose en http://localhost:8080</li>
 								</ul>
@@ -264,7 +275,7 @@ export default function Week10Page() {
 								</ul>
 								
 								<p className="text-base text-gray-700 font-semibold mt-4">✅ Resultado:</p>
-								<ul className="list-none pl-0 text-base text-green-700 space-y-1 mb-4">
+								<ul className="list-none pl-0 text-base text-amber-700 space-y-1 mb-4">
 									<li>✓ Cálculo correcto del factorial</li>
 									<li>✓ Validación de errores funcionando</li>
 									<li>✓ Contador de sesión operativo</li>
@@ -291,7 +302,7 @@ export default function Week10Page() {
 								</ul>
 								
 								<p className="text-base text-gray-700 font-semibold mt-4">✅ Resultado:</p>
-								<ul className="list-none pl-0 text-base text-green-700 space-y-1 mb-4">
+								<ul className="list-none pl-0 text-base text-amber-700 space-y-1 mb-4">
 									<li>✓ API funcionando correctamente</li>
 									<li>✓ Probado con Postman exitosamente</li>
 								</ul>
@@ -308,7 +319,7 @@ export default function Week10Page() {
 					{activeTab === 'bibliografia' && (
 						<div className="space-y-10">
 							<div className="flex items-center gap-4 mb-10">
-								<div className="p-4 bg-gradient-to-br from-green-500 to-teal-500 rounded-3xl shadow-2xl">
+								<div className="p-4 bg-gradient-to-br from-amber-500 to-rose-500 rounded-3xl shadow-2xl">
 									<Sparkles className="w-7 h-7 text-white" />
 								</div>
 								<h3 className="text-4xl font-black text-gray-800">Bibliografía</h3>
@@ -320,7 +331,7 @@ export default function Week10Page() {
 										href={resource.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="group relative block bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-emerald-300 overflow-hidden hover:-translate-y-2"
+										className="group relative block bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-amber-300 overflow-hidden hover:-translate-y-2"
 										style={{ animationDelay: `${index * 150}ms` }}
 									>
 										<div className={`absolute inset-0 bg-gradient-to-br ${resource.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
@@ -330,9 +341,9 @@ export default function Week10Page() {
 											</div>
 											<div className="flex-1 space-y-2">
 												<p className="text-sm text-gray-500 font-semibold uppercase tracking-wider">Recurso externo</p>
-												<h4 className="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">{resource.title}</h4>
+												<h4 className="text-2xl font-bold text-gray-800 group-hover:text-amber-600 transition-colors duration-300">{resource.title}</h4>
 											</div>
-											<ExternalLink className="w-6 h-6 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+											<ExternalLink className="w-6 h-6 text-gray-400 group-hover:text-amber-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
 										</div>
 									</a>
 								))}
@@ -344,13 +355,13 @@ export default function Week10Page() {
 					{activeTab === 'reflexion' && (
 						<div className="space-y-8">
 							<div className="flex items-center gap-4 mb-10">
-								<div className="p-4 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl shadow-2xl">
+								<div className="p-4 bg-gradient-to-br from-amber-500 to-rose-500 rounded-3xl shadow-2xl">
 									<Lightbulb className="w-7 h-7 text-white" />
 								</div>
 								<h3 className="text-4xl font-black text-gray-800">Reflexión de Aprendizaje</h3>
 							</div>
 							
-							<div className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-l-4 border-green-600 p-10 rounded-3xl shadow-lg mb-8">
+							<div className="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border-l-4 border-amber-600 p-10 rounded-3xl shadow-lg mb-8">
 								<h4 className="text-2xl font-bold text-gray-800 mb-4">¿Qué aprendí?</h4>
 								<ul className="list-disc pl-10 space-y-3 text-lg text-gray-700">
 									<li><b>Servidor web:</b> Comprendí cómo Apache Tomcat funciona como contenedor para aplicaciones Java web y cómo configurarlo.</li>
@@ -362,7 +373,7 @@ export default function Week10Page() {
 								</ul>
 							</div>
 
-							<div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 border-l-4 border-emerald-600 p-10 rounded-3xl shadow-lg mb-8">
+							<div className="bg-gradient-to-br from-orange-50 via-rose-50 to-pink-50 border-l-4 border-orange-600 p-10 rounded-3xl shadow-lg mb-8">
 								<h4 className="text-2xl font-bold text-gray-800 mb-4">¿Cómo aprendí?</h4>
 								<ul className="list-disc pl-10 space-y-3 text-lg text-gray-700">
 									<li><b>Instalación práctica:</b> Configuré mi entorno de desarrollo paso a paso, lo que me dio confianza en el manejo de herramientas.</li>
@@ -374,7 +385,7 @@ export default function Week10Page() {
 								</ul>
 							</div>
 
-							<div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 border-l-4 border-teal-600 p-10 rounded-3xl shadow-lg mb-8">
+							<div className="bg-gradient-to-br from-rose-50 via-pink-50 to-fuchsia-50 border-l-4 border-rose-600 p-10 rounded-3xl shadow-lg mb-8">
 								<h4 className="text-2xl font-bold text-gray-800 mb-4">🚧 Desafíos enfrentados:</h4>
 								<ul className="list-disc pl-10 space-y-2 text-lg text-gray-700">
 									<li>Configurar correctamente las variables de entorno</li>
@@ -383,7 +394,7 @@ export default function Week10Page() {
 								</ul>
 							</div>
 
-							<div className="bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 border-l-4 border-cyan-600 p-10 rounded-3xl shadow-lg">
+							<div className="bg-gradient-to-br from-pink-50 via-fuchsia-50 to-purple-50 border-l-4 border-pink-600 p-10 rounded-3xl shadow-lg">
 								<h4 className="text-2xl font-bold text-gray-800 mb-4">🎯 Logros alcanzados:</h4>
 								<ul className="list-disc pl-10 space-y-2 text-lg text-gray-700">
 									<li>Ambiente de desarrollo totalmente funcional</li>
@@ -400,14 +411,14 @@ export default function Week10Page() {
 			<div className="bg-white/90 backdrop-blur-xl border-t-2 border-gray-200 shadow-2xl mt-16">
 				<div className="container mx-auto px-6 py-8">
 					<div className="flex items-center justify-between">
-						<a href="/projects/semana-9" className="flex items-center gap-3 text-gray-700 hover:text-green-600 font-bold transition-all duration-300 hover:gap-4 px-6 py-3 rounded-xl hover:bg-green-50 text-lg">
+						<a href="/projects/semana-9" className="flex items-center gap-3 text-gray-700 hover:text-amber-600 font-bold transition-all duration-300 hover:gap-4 px-6 py-3 rounded-xl hover:bg-amber-50 text-lg">
 							<ChevronLeft className="w-6 h-6" />
 							Semana Anterior
 						</a>
 						<a href="/#projects" className="px-8 py-4 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 rounded-2xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg">
 							Ver Todas las Semanas
 						</a>
-						<a href="/projects/semana-13" className="flex items-center gap-3 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:gap-4 transform hover:scale-105 text-lg">
+						<a href="/projects/semana-13" className="flex items-center gap-3 bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:gap-4 transform hover:scale-105 text-lg">
 							Siguiente Semana
 							<ChevronRight className="w-6 h-6" />
 						</a>

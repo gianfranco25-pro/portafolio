@@ -90,11 +90,11 @@ export const projects = [
   {
     id: 2,
     title: "Unidad 2",
-    des: "Proximamente: semanas 8 a 15.",
+    des: "Semanas 9 a 15: desarrollo backend y servidores.",
     img: "/p6.png",
     iconLists: ["/TypeScript.svg", "/Next.js.svg"],
     link: "",
-    slug: "",
+    slug: "semana-9",
   },
 ];
 

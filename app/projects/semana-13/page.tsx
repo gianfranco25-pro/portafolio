@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Server, Database, Globe, Package, FileCode, Layers, Terminal, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Server, Database, Globe, Package, FileCode, Layers, Terminal, Zap, Home } from 'lucide-react';
+import WeekNav from '@/components/WeekNav';
 
 const weekConfig = {
 	number: 13,
@@ -102,6 +103,7 @@ export default function Week13Page() {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
+			<WeekNav currentWeek={weekConfig.number} />
 			{/* Header animado */}
 			<div className="relative overflow-hidden bg-gradient-to-br from-purple-500 via-indigo-400 to-blue-500 text-white">
 				<div className="absolute inset-0 opacity-20">
@@ -114,6 +116,15 @@ export default function Week13Page() {
 					<div className="flex items-center gap-4 mb-6 animate-fade-in">
 						<div className="text-6xl animate-float">{weekConfig.icon}</div>
 						<div>
+							<div className="mb-4 -mt-6 -ml-8">
+								<a
+									href="/"
+									className="inline-flex items-center gap-3 rounded-full bg-white/15 px-5 py-2.5 text-base font-bold uppercase tracking-wide text-white transition hover:bg-white/25 hover:scale-[1.02]"
+								>
+									<Home className="h-5 w-5" />
+									Inicio
+								</a>
+							</div>
 							<div className="text-indigo-100 font-bold text-lg mb-2">SEMANA {weekConfig.number}</div>
 							<h1 className="text-4xl md:text-5xl font-black mb-2">{weekConfig.title}</h1>
 							<p className="text-xl text-indigo-100 font-semibold">{weekConfig.subtitle}</p>

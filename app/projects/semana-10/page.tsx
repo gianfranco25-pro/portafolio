@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Box, Server, Database, Globe, Layers, Package, FileCode, Shield, Zap, Coffee } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Code, Sparkles, Lightbulb, ExternalLink, Box, Server, Database, Globe, Layers, Package, FileCode, Shield, Zap, Coffee, Home } from 'lucide-react';
+import WeekNav from '@/components/WeekNav';
 
 const weekConfig = {
 	number: 10,
@@ -73,6 +74,7 @@ export default function Week10Page() {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+			<WeekNav currentWeek={weekConfig.number} />
 			{/* Header animado */}
 			<div className="relative overflow-hidden bg-gradient-to-br from-green-500 via-emerald-400 to-teal-500 text-white">
 				<div className="absolute inset-0 opacity-20">
@@ -85,6 +87,15 @@ export default function Week10Page() {
 					<div className="flex items-center gap-4 mb-6 animate-fade-in">
 						<div className="text-6xl animate-float">{weekConfig.icon}</div>
 						<div>
+							<div className="mb-4 -mt-6 -ml-8">
+								<a
+									href="/"
+									className="inline-flex items-center gap-3 rounded-full bg-white/15 px-5 py-2.5 text-base font-bold uppercase tracking-wide text-white transition hover:bg-white/25 hover:scale-[1.02]"
+								>
+									<Home className="h-5 w-5" />
+									Inicio
+								</a>
+							</div>
 							<div className="text-emerald-100 font-bold text-lg mb-2">SEMANA {weekConfig.number}</div>
 							<h1 className="text-4xl md:text-5xl font-black mb-2">{weekConfig.title}</h1>
 							<p className="text-xl text-emerald-100 font-semibold">{weekConfig.subtitle}</p>
@@ -165,7 +176,7 @@ export default function Week10Page() {
 								<h4 className="text-xl font-semibold text-gray-700 mt-4 mb-2">Expresiones <code className="bg-gray-100 px-2 py-1 rounded">&lt;%= expresión %&gt;</code></h4>
 								<p className="text-base text-gray-700 mb-4">Sirve para mostrar el resultado de una operación directamente en la página HTML.</p>
 								
-								<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800 my-4">[INSERTAR IMAGEN: Ejemplo de código JSP Expression con saludo y fecha - Página 4 del PDF]</div>
+								   <div className="flex justify-center my-4"><img src="/ejemplo-jsp-expression.png" alt="Ejemplo de código JSP Expression con saludo y fecha" className="rounded-xl border shadow max-w-full h-auto" /></div>
 
 								<h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-8 mb-2">Tema 4: Patrón MVC con JSP</h3>
 								<p className="text-lg text-gray-700 mb-4">
@@ -230,8 +241,8 @@ export default function Week10Page() {
 								</ul>
 								
 								<div className="flex flex-col gap-2 my-4">
-									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Terminal mostrando java --version - Página 11]</div>
-									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Ventana de instalación de Tomcat - Páginas 12-14]</div>
+									   <div className="flex justify-center my-2"><img src="/terminal-java-version.png" alt="Terminal mostrando java --version" className="rounded-xl border shadow max-w-full h-auto" /></div>
+									   <div className="flex justify-center my-2"><img src="/instalacion-tomcat.png" alt="Ventana de instalación de Tomcat" className="rounded-xl border shadow max-w-full h-auto" /></div>
 								</div>
 
 								<h3 className="text-2xl font-bold text-gray-800 mt-10 mb-2">Ejercicio 2: Primera Aplicación JSP - Fecha Actual</h3>
@@ -252,7 +263,7 @@ export default function Week10Page() {
 								
 								<p className="text-base text-gray-700 font-semibold mt-4">✅ Resultado:</p>
 								<p className="text-base text-gray-700 mb-4">La página muestra correctamente el mensaje de bienvenida y la fecha/hora actual del servidor.</p>
-								<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800 my-2">[INSERTAR CAPTURA: Navegador mostrando la página JSP funcionando]</div>
+								   <div className="flex justify-center my-2"><img src="/jsp-funcionando.png" alt="Navegador mostrando la página JSP funcionando" className="rounded-xl border shadow max-w-full h-auto" /></div>
 
 								<h3 className="text-2xl font-bold text-gray-800 mt-10 mb-2">Ejercicio 3: Aplicación JSP con Formulario - Cálculo Factorial</h3>
 								<p className="text-base text-gray-700 mb-2"><b>Funcionalidad:</b></p>
@@ -269,7 +280,7 @@ export default function Week10Page() {
 									<li>✓ Validación de errores funcionando</li>
 									<li>✓ Contador de sesión operativo</li>
 								</ul>
-								<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800 my-2">[INSERTAR CAPTURA: Formulario en funcionamiento mostrando un cálculo]</div>
+								   <div className="flex justify-center my-2"><img src="/jsp-formulario-funcionando.png" alt="Formulario en funcionamiento mostrando un cálculo" className="rounded-xl border shadow max-w-full h-auto" /></div>
 
 								<h3 className="text-2xl font-bold text-gray-800 mt-10 mb-2">Ejercicio 4: API REST con Spring Boot - CRUD Estudiantes</h3>
 								<p className="text-base text-gray-700 mb-2"><b>Configuración realizada:</b></p>
@@ -297,8 +308,8 @@ export default function Week10Page() {
 								</ul>
 								
 								<div className="flex flex-col gap-2 my-4">
-									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Estructura del proyecto en IntelliJ - Página 16]</div>
-									<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800">[INSERTAR CAPTURA: Prueba en Postman mostrando respuesta exitosa - Página 21]</div>
+									   <div className="flex justify-center my-2"><img src="/estructura-intellij.png" alt="Estructura del proyecto en IntelliJ" className="rounded-xl border shadow max-w-full h-auto" /></div>
+									   <div className="flex justify-center my-2"><img src="/postman-respuesta-exitosa.png" alt="Prueba en Postman mostrando respuesta exitosa" className="rounded-xl border shadow max-w-full h-auto" /></div>
 								</div>
 							</div>
 						</div>
