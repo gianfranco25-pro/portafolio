@@ -332,7 +332,7 @@ export default function Week15Page() {
 								<div className="space-y-3 mb-4">
 									<div className="bg-purple-50 p-4 rounded-lg">
 										<h4 className="text-base font-bold text-gray-800 mb-1">Sistemas basados en reglas (IF-THEN)</h4>
-										<p className="text-base text-gray-700">Estructurados y deterministas, ideales en entornos controlados. Ejemplo: "SI fiebre Y tos ENTONCES gripe"</p>
+										<p className="text-base text-gray-700">Estructurados y deterministas, ideales en entornos controlados. Ejemplo: &quot;SI fiebre Y tos ENTONCES gripe&quot;</p>
 									</div>
 									
 									<div className="bg-pink-50 p-4 rounded-lg">
@@ -342,7 +342,7 @@ export default function Week15Page() {
 									
 									<div className="bg-red-50 p-4 rounded-lg">
 										<h4 className="text-base font-bold text-gray-800 mb-1">Lógica difusa (Fuzzy)</h4>
-										<p className="text-base text-gray-700">Maneja imprecisión, variables lingüísticas ("temperatura alta", "clima templado")</p>
+										<p className="text-base text-gray-700">Maneja imprecisión, variables lingüísticas (&quot;temperatura alta&quot;, &quot;clima templado&quot;)</p>
 									</div>
 									
 									<div className="bg-purple-50 p-4 rounded-lg">
@@ -382,7 +382,7 @@ export default function Week15Page() {
 									<li>Redes neuronales clásicas (MLP)</li>
 									<li>BERT (para NLP)</li>
 								</ul>
-								<p className="text-base text-gray-700 mb-4"><b>Uso práctico:</b> "¿Es este email spam o no spam?"</p>
+								<p className="text-base text-gray-700 mb-4"><b>Uso práctico:</b> &quot;¿Es este email spam o no spam?&quot;</p>
 								<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800 my-4">[INSERTAR IMAGEN: Sección de modelos discriminativos - página 4 del PDF]</div>
 
 								<h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-8 mb-2">Tema 8: Modelos Generativos</h3>
@@ -410,7 +410,7 @@ export default function Week15Page() {
 									<li><b>Autoencoders</b> - Comprimen y reconstruyen datos</li>
 									<li><b>VAEs (Variational Autoencoders)</b> - Generación con variaciones</li>
 								</ul>
-								<p className="text-base text-gray-700 mb-4"><b>Uso práctico:</b> "Genera una imagen de un gato que no existe"</p>
+								<p className="text-base text-gray-700 mb-4"><b>Uso práctico:</b> &quot;Genera una imagen de un gato que no existe&quot;</p>
 								<div className="bg-gray-100 rounded-lg p-2 text-xs font-mono text-gray-800 my-4">[INSERTAR IMAGEN: Sección de modelos generativos - página 4 del PDF]</div>
 
 								<h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-8 mb-2">Tema 9: Large Language Models (LLM)</h3>
@@ -601,7 +601,7 @@ Diagnóstico: Posible gripe común`}
 									<h4 className="text-lg font-bold text-gray-800 mb-2">💡 Concepto de Lógica Difusa:</h4>
 									<p className="text-base text-gray-700">A diferencia de la lógica booleana (verdadero/falso), la lógica difusa permite valores intermedios:</p>
 									<ul className="text-base text-gray-700 list-disc pl-6 space-y-1 mt-2">
-										<li>Temperatura 25°C → 70% "media", 30% "baja"</li>
+										<li>Temperatura 25°C → 70% &quot;media&quot;, 30% &quot;baja&quot;</li>
 										<li>Respuestas más naturales y graduales</li>
 									</ul>
 								</div>
@@ -828,11 +828,11 @@ if __name__ == "__main__":
 											<p className="text-base text-gray-700 mt-2">Acceder a: <a href="http://localhost:5000" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">http://localhost:5000</a></p>
 											<p className="text-base text-gray-700 mt-2"><b>Pruebas realizadas:</b></p>
 											<ul className="text-base text-green-700 list-none pl-0 space-y-1 mt-2">
-												<li>✓ Escribir pregunta en el textarea</li>
-												<li>✓ Click en "Enviar"</li>
-												<li>✓ Modelo genera respuesta coherente</li>
-												<li>✓ Respuesta se muestra en la interfaz</li>
-											</ul>
+										<li>- Escribir pregunta en el textarea</li>
+										<li>- Click en &quot;Enviar&quot;</li>
+										<li>- Modelo genera respuesta coherente</li>
+										<li>- Respuesta se muestra en la interfaz</li>
+									</ul>
 										</div>
 									</div>
 								</div>
@@ -955,7 +955,7 @@ if __name__ == "__main__":
 							<div className="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 border-l-4 border-red-600 p-10 rounded-3xl shadow-lg mb-8">
 								<h4 className="text-2xl font-bold text-gray-800 mb-4">🚧 Desafíos enfrentados:</h4>
 								<ul className="list-disc pl-10 space-y-2 text-lg text-gray-700">
-									<li>Conceptos abstractos: Términos como "modelo generativo", "espacio latente", "embeddings" eran nuevos.</li>
+												<li>Conceptos abstractos: Términos como &quot;modelo generativo&quot;, &quot;espacio latente&quot;, &quot;embeddings&quot; eran nuevos.</li>
 									<li>Recursos computacionales: Trabajar con LLMs requiere hardware potente.</li>
 									<li>Instalación de dependencias: Librerías como PyTorch tienen versiones específicas según CUDA/CPU.</li>
 									<li>Lógica difusa matemática: Entender funciones de pertenencia triangulares y defuzzificación requirió repasar conceptos.</li>
@@ -1112,7 +1112,7 @@ if __name__ == "__main__":
 								</ul>
 								<div className="mt-6 p-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl border-l-4 border-purple-600">
 									<p className="text-lg font-semibold text-gray-800 italic">
-										"La inteligencia artificial es la nueva electricidad. Así como la electricidad transformó industrias hace 100 años, la IA transformará todo lo que hacemos hoy." - Andrew Ng
+										&quot;La inteligencia artificial es la nueva electricidad. Así como la electricidad transformó industrias hace 100 años, la IA transformará todo lo que hacemos hoy.&quot; - Andrew Ng
 									</p>
 								</div>
 							</div>
@@ -1168,3 +1168,7 @@ if __name__ == "__main__":
 		</div>
 	);
 }
+
+
+
+
